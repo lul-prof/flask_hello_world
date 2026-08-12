@@ -1,4 +1,4 @@
-from flask import Flask,redirect,url_for
+from flask import Flask,redirect,url_for, render_template
 
 
 app=Flask(__name__)
@@ -41,6 +41,11 @@ def age(age):
         return redirect(url_for('teen'))
     else:
         return redirect(url_for('adult'))
+
+# template renderind
+@app.route('/home')
+def welcome():
+    return render_template('home.html')
 
 if __name__=='__main__':
     app.run(debug=True,port=5000)
